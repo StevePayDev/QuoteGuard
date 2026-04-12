@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuoteGuard | Check the Quote. Check the Builder.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '884271207968594');
+fbq('track', 'PageView');
+</script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    />
+  </noscript>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #2563eb;
+      --blue-mid: #3b82f6;
+      --blue-light: #eff6ff;
+      --blue-tint: #dbeafe;
+      --navy: #1e3a5f;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --white: #ffffff;
+      --amber: #f59e0b;
+      --red-soft: #fef2f2;
+      --red-txt: #dc2626;
+      --green-soft: #f0fdf4;
+      --green-txt: #16a34a;
+      --yellow-soft: #fffbeb;
+      --yellow-txt: #92400e;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(37, 99, 235, 0.10);
+      --shadow-lg: 0 12px 48px rgba(37, 99, 235, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-pill {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--blue-tint);
+      padding: 5px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 80px 24px 64px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-tint);
+      border: 1px solid #bfdbfe;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .sub {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .capture {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .capture input {
+      height: 52px;
+      padding: 0 18px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafafa;
+    }
+
+    .capture input:focus {
+      border-color: var(--blue);
+      background: var(--white);
+    }
+
+    .capture input::placeholder {
+      color: #9ca3af;
+    }
+
+    .btn {
+      height: 52px;
+      padding: 0 28px;
+      background: var(--blue);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.30);
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .micro {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .form-message.success {
+      background: var(--green-soft);
+      color: var(--green-txt);
+      border: 1px solid #bbf7d0;
+    }
+
+    .form-message.error {
+      background: var(--red-soft);
+      color: var(--red-txt);
+      border: 1px solid #fecaca;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .proof-section {
+      padding: 72px 24px;
+      background: var(--blue-light);
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .report-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      max-width: 420px;
+      margin: 0 auto;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .report-header {
+      background: var(--navy);
+      padding: 20px 24px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .report-logo {
+      font-family: "DM Serif Display", serif;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .report-logo span {
+      color: #60a5fa;
+    }
+
+    .report-meta {
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: #93c5fd;
+    }
+
+    .report-project {
+      padding: 14px 24px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .report-project strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .risk-banner {
+      margin: 16px 24px;
+      background: var(--yellow-soft);
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .risk-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .risk-label {
+      font-size: 0.7rem;
+      color: var(--yellow-txt);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .risk-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--yellow-txt);
+    }
+
+    .report-rows {
+      padding: 8px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .report-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+    }
+
+    .report-row.warn {
+      background: var(--red-soft);
+    }
+
+    .report-row.caution {
+      background: var(--yellow-soft);
+    }
+
+    .report-row.ok {
+      background: var(--green-soft);
+    }
+
+    .row-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .row-label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      display: block;
+    }
+
+    .row-value {
+      font-weight: 600;
+    }
+
+    .row-value.warn-txt {
+      color: var(--red-txt);
+    }
+
+    .row-value.caution-txt {
+      color: var(--yellow-txt);
+    }
+
+    .row-value.ok-txt {
+      color: var(--green-txt);
+    }
+
+    .benefits-section {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 560px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 800px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-card:hover {
+      border-color: var(--blue-mid);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .benefit-card h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .benefit-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .how-section {
+      padding: 80px 24px;
+      background: var(--blue-light);
+      text-align: center;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      max-width: 640px;
+      margin: 40px auto 0;
+      position: relative;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue-tint), var(--blue), var(--blue-tint));
+    }
+
+    @media (min-width: 560px) {
+      .steps {
+        flex-direction: row;
+      }
+
+      .steps::before {
+        top: 28px;
+        left: 28px;
+        right: 28px;
+        bottom: auto;
+        height: 2px;
+        width: auto;
+        background: linear-gradient(to right, var(--blue-tint), var(--blue), var(--blue-tint));
+      }
+    }
+
+    .step {
+      flex: 1;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 0 0 32px 0;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 560px) {
+      .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 16px;
+      }
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "DM Serif Display", serif;
+      font-size: 1.25rem;
+      color: var(--blue);
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    .step-body h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .step-body p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .trust-section {
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trust-section p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .trust-icons {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .trust-item span {
+      font-size: 1rem;
+    }
+
+    .final-cta {
+      padding: 80px 24px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    footer {
+      background: var(--navy);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: #93c5fd;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: #93c5fd;
+    }
+
+    .footer-logo {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #60a5fa;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .anim {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .anim.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Quote<span>Guard</span></div>
+    <a href="#final-cta" class="nav-pill">Join the waitlist</a>
+  </nav>
+
+  <section style="padding-top: 16px;">
+    <div class="hero">
+      <div class="badge">UK Early Access</div>
+      <h1>
+        Check the quote.<br />
+        <em>Check the builder.</em><br />
+        Avoid an expensive mistake.
+      </h1>
+      <p class="sub">
+        QuoteGuard helps you review a builder quote and the company behind it, so you can spot pricing issues,
+        missing details, reputation concerns, and financial warning signs before you commit.
+      </p>
+
+      <form class="capture waitlist-form" data-location="hero">
+        <input type="hidden" name="_subject" value="New QuoteGuard waitlist signup" />
+        <input type="hidden" name="form_location" value="hero" />
+        <input type="hidden" name="source" value="website_waitlist" />
+        <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
+        <button class="btn" type="submit">Join the waitlist</button>
+        <p class="micro">For UK homeowners planning £10k to £250k projects. No spam.</p>
+        <div class="form-message success"></div>
+        <div class="form-message error"></div>
+      </form>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="proof-section">
+    <div class="anim">
+      <p class="section-label">Sample Report</p>
+      <h2 class="section-title">Here’s what you’ll receive</h2>
+      <p class="section-sub">Spot issues before you pay a deposit or sign a contract.</p>
+    </div>
+
+    <div class="report-card anim">
+      <div class="report-header">
+        <div class="report-logo">Quote<span>Guard</span></div>
+        <div class="report-meta">Report · April 2026</div>
+      </div>
+
+      <div class="report-project">
+        Project: <strong>Two-storey side extension</strong> · Estimated value: <strong>£68,000</strong>
+      </div>
+
+      <div class="risk-banner">
+        <div class="risk-dot">!</div>
+        <div>
+          <div class="risk-label">Overall Risk Score</div>
+          <div class="risk-value">Medium. Review before signing.</div>
+        </div>
+      </div>
+
+      <div class="report-rows">
+        <div class="report-row warn">
+          <span class="row-icon">💰</span>
+          <div>
+            <span class="row-label">Price Review</span>
+            <span class="row-value warn-txt">Possible overpricing found</span>
+          </div>
+        </div>
+
+        <div class="report-row caution">
+          <span class="row-icon">⭐</span>
+          <div>
+            <span class="row-label">Reputation Check</span>
+            <span class="row-value caution-txt">Mixed public signals detected</span>
+          </div>
+        </div>
+
+        <div class="report-row caution">
+          <span class="row-icon">🏢</span>
+          <div>
+            <span class="row-label">Company Background</span>
+            <span class="row-value caution-txt">Active. Short trading history.</span>
+          </div>
+        </div>
+
+        <div class="report-row warn">
+          <span class="row-icon">⚠️</span>
+          <div>
+            <span class="row-label">Financial Warning Signs</span>
+            <span class="row-value warn-txt">Signals worth checking further</span>
+          </div>
+        </div>
+
+        <div class="report-row ok">
+          <span class="row-icon">📄</span>
+          <div>
+            <span class="row-label">Quote Completeness</span>
+            <span class="row-value ok-txt">Mostly complete. Two items flagged.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-section">
+    <div class="anim" style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <p class="section-label">What’s included</p>
+      <h2 class="section-title">Everything in one clear report</h2>
+      <p class="section-sub">No jargon. No guesswork. Clear points you can act on.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card anim">
+        <div class="benefit-icon">📋</div>
+        <h3>Quote Review</h3>
+        <p>Flags missing items, vague wording, and terms which could cost you later.</p>
+      </div>
+
+      <div class="benefit-card anim">
+        <div class="benefit-icon">🔍</div>
+        <h3>Reputation Analysis</h3>
+        <p>Reviews and reputation signals gathered from public sources.</p>
+      </div>
+
+      <div class="benefit-card anim">
+        <div class="benefit-icon">🏢</div>
+        <h3>Company Background</h3>
+        <p>Trading history, registration status, and core verification checks.</p>
+      </div>
+
+      <div class="benefit-card anim">
+        <div class="benefit-icon">📊</div>
+        <h3>Financial Warning Signs</h3>
+        <p>Signals which may point to financial stress or added delivery risk.</p>
+      </div>
+
+      <div class="benefit-card anim">
+        <div class="benefit-icon">💷</div>
+        <h3>Fair Price Review</h3>
+        <p>Helps you judge whether the quote looks high for your project type and area.</p>
+      </div>
+
+      <div class="benefit-card anim">
+        <div class="benefit-icon">📝</div>
+        <h3>Plain-English Summary</h3>
+        <p>Simple next steps so you know what to ask before you commit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="anim">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Three steps. One clearer decision.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step anim">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Share your quote</h3>
+          <p>At launch, you’ll be able to upload a PDF, image, or quote text.</p>
+        </div>
+      </div>
+
+      <div class="step anim">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>We review quote and builder</h3>
+          <p>Pricing, reputation, company background, and warning signs checked together.</p>
+        </div>
+      </div>
+
+      <div class="step anim">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Get your report</h3>
+          <p>You receive a clear summary before you sign or pay a deposit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-section">
+    <p class="anim">
+      Built for UK homeowners planning extensions, renovations, and major home improvements.
+      Know what you’re committing to before you commit.
+    </p>
+
+    <div class="trust-icons anim">
+      <div class="trust-item"><span>🔒</span> No data sold</div>
+      <div class="trust-item"><span>🇬🇧</span> UK focused</div>
+      <div class="trust-item"><span>⚡</span> Fast and simple</div>
+      <div class="trust-item"><span>💬</span> Plain English</div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="final-cta">
+    <div style="max-width: 640px; margin: 0 auto;" class="anim">
+      <p class="section-label">Join the waitlist</p>
+      <h2 class="section-title" style="margin-bottom: 16px;">
+        Check the quote.<br />
+        <em style="color: var(--blue); font-family: 'DM Serif Display', serif;">Check the builder.</em>
+      </h2>
+      <p class="sub" style="margin-bottom: 36px;">
+        Be first to hear when QuoteGuard launches.
+      </p>
+
+      <form class="capture waitlist-form" data-location="footer">
+        <input type="hidden" name="_subject" value="New QuoteGuard waitlist signup" />
+        <input type="hidden" name="form_location" value="footer" />
+        <input type="hidden" name="source" value="website_waitlist" />
+        <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
+        <button class="btn" type="submit">Join the waitlist</button>
+        <p class="micro">For UK homeowners planning £10k to £250k projects. No spam.</p>
+        <div class="form-message success"></div>
+        <div class="form-message error"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Quote<span>Guard</span></div>
+    <p>
+      © 2026 QuoteGuard<br />
+      hello@quoteguard.co.uk<br />
+      Privacy Policy | Terms
+    </p>
+  </footer>
+
+  <script>
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkopdpbo";
+
+    document.querySelectorAll(".waitlist-form").forEach((form) => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const button = form.querySelector(".btn");
+        const successBox = form.querySelector(".form-message.success");
+        const errorBox = form.querySelector(".form-message.error");
+        const emailInput = form.querySelector('input[name="email"]');
+
+        successBox.style.display = "none";
+        errorBox.style.display = "none";
+
+        if (!emailInput.value.trim()) {
+          errorBox.textContent = "Please enter your email address.";
+          errorBox.style.display = "block";
+          return;
+        }
+
+        const originalButtonText = button.textContent;
+        button.disabled = true;
+        button.textContent = "Submitting...";
+
+        try {
+          const formData = new FormData(form);
+
+          const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            successBox.textContent = "Thanks. You’re on the waitlist.";
+            successBox.style.display = "block";
+
+            if (typeof fbq !== "undefined") {
+              fbq('track', 'Lead');
+              fbq('trackCustom', 'QuoteGuardWaitlistSignup', {
+                form_location: form.dataset.location || "unknown"
+              });
+            }
+          } else {
+            const data = await response.json().catch(() => null);
+            errorBox.textContent = data && data.errors
+              ? data.errors.map(err => err.message).join(", ")
+              : "Something went wrong. Please try again.";
+            errorBox.style.display = "block";
+          }
+        } catch (error) {
+          errorBox.textContent = "Something went wrong. Please try again.";
+          errorBox.style.display = "block";
+        } finally {
+          button.disabled = false;
+          button.textContent = originalButtonText;
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".anim").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
