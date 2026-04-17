@@ -8,23 +8,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '884271207968594');
-fbq('track', 'PageView');
-</script>
+  fbq('init', '884271207968594');
+  fbq('track', 'PageView');
+  </script>
 
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+      src="https://www.facebook.com/tr?id=884271207968594&ev=PageView&noscript=1"
     />
   </noscript>
 
@@ -102,6 +102,9 @@ fbq('track', 'PageView');
       padding: 5px 14px;
       border-radius: 999px;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
     }
 
     .hero {
@@ -167,6 +170,7 @@ fbq('track', 'PageView');
       outline: none;
       transition: border-color 0.2s;
       background: #fafafa;
+      width: 100%;
     }
 
     .capture input:focus {
@@ -208,10 +212,39 @@ fbq('track', 'PageView');
       cursor: wait;
     }
 
+    .btn-secondary {
+      height: 52px;
+      padding: 0 28px;
+      background: var(--white);
+      color: var(--blue);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1.5px solid var(--blue-tint);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
     .micro {
       font-size: 0.78rem;
       color: var(--muted);
       margin-top: 4px;
+      line-height: 1.5;
     }
 
     .form-message {
@@ -633,6 +666,96 @@ fbq('track', 'PageView');
       color: #60a5fa;
     }
 
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.56);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 200;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 520px;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .upload-box {
+      border: 1.5px dashed #bfdbfe;
+      background: var(--blue-light);
+      border-radius: var(--radius);
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .upload-box input[type="file"] {
+      display: none;
+    }
+
+    .upload-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      background: var(--white);
+      border: 1px solid #bfdbfe;
+      color: var(--blue);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .selected-file {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .hidden-field {
+      display: none;
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -659,7 +782,7 @@ fbq('track', 'PageView');
 <body>
   <nav>
     <div class="logo">Quote<span>Guard</span></div>
-    <a href="#final-cta" class="nav-pill">Join the waitlist</a>
+    <button class="nav-pill upload-trigger" type="button">Upload your quote</button>
   </nav>
 
   <section style="padding-top: 16px;">
@@ -675,22 +798,20 @@ fbq('track', 'PageView');
         missing details, reputation concerns, and financial warning signs before you commit.
       </p>
 
-      <form class="capture waitlist-form" data-location="hero">
-        <input type="hidden" name="_subject" value="New QuoteGuard waitlist signup" />
-        <input type="hidden" name="form_location" value="hero" />
-        <input type="hidden" name="source" value="website_waitlist" />
-        <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
-        <button class="btn" type="submit">Join the waitlist</button>
-        <p class="micro">For UK homeowners planning £10k to £250k projects. No spam.</p>
-        <div class="form-message success"></div>
-        <div class="form-message error"></div>
-      </form>
+      <div class="hero-actions">
+        <button class="btn upload-trigger" type="button">Upload Your Quote</button>
+        <a href="#proof" class="btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">See Sample Report</a>
+      </div>
+
+      <p class="micro">
+        Testing early interest from UK homeowners planning £10k to £250k projects.
+      </p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="proof-section">
+  <section class="proof-section" id="proof">
     <div class="anim">
       <p class="section-label">Sample Report</p>
       <h2 class="section-title">Here’s what you’ll receive</h2>
@@ -815,8 +936,8 @@ fbq('track', 'PageView');
       <div class="step anim">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>Share your quote</h3>
-          <p>At launch, you’ll be able to upload a PDF, image, or quote text.</p>
+          <h3>Upload your quote</h3>
+          <p>Upload a PDF, image, or quote text. We’re testing demand before full launch.</p>
         </div>
       </div>
 
@@ -854,25 +975,19 @@ fbq('track', 'PageView');
 
   <section class="final-cta" id="final-cta">
     <div style="max-width: 640px; margin: 0 auto;" class="anim">
-      <p class="section-label">Join the waitlist</p>
+      <p class="section-label">Early Access</p>
       <h2 class="section-title" style="margin-bottom: 16px;">
-        Check the quote.<br />
-        <em style="color: var(--blue); font-family: 'DM Serif Display', serif;">Check the builder.</em>
+        Ready to test your quote?
       </h2>
       <p class="sub" style="margin-bottom: 36px;">
-        Be first to hear when QuoteGuard launches.
+        Upload your quote and register your interest. We’ll use this to prioritise early access.
       </p>
 
-      <form class="capture waitlist-form" data-location="footer">
-        <input type="hidden" name="_subject" value="New QuoteGuard waitlist signup" />
-        <input type="hidden" name="form_location" value="footer" />
-        <input type="hidden" name="source" value="website_waitlist" />
-        <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
-        <button class="btn" type="submit">Join the waitlist</button>
-        <p class="micro">For UK homeowners planning £10k to £250k projects. No spam.</p>
-        <div class="form-message success"></div>
-        <div class="form-message error"></div>
-      </form>
+      <div class="hero-actions">
+        <button class="btn upload-trigger" type="button">Upload Your Quote</button>
+      </div>
+
+      <p class="micro">We’re currently testing real homeowner interest before wider launch.</p>
     </div>
   </section>
 
@@ -885,10 +1000,90 @@ fbq('track', 'PageView');
     </p>
   </footer>
 
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal">
+      <button class="modal-close" type="button" id="closeModal" aria-label="Close">×</button>
+      <h3>Upload your quote</h3>
+      <p>
+        Full quote review is coming shortly. For now, upload your quote and leave your email so we can prioritise early access and review demand.
+      </p>
+
+      <form class="capture upload-intent-form" data-location="modal">
+        <input type="hidden" name="_subject" value="New QuoteGuard upload interest" />
+        <input type="hidden" name="form_location" value="modal" />
+        <input type="hidden" name="source" value="quote_upload_interest" />
+        <input type="hidden" name="selected_file_name" id="selectedFileNameField" value="" />
+
+        <div class="upload-box">
+          <label class="upload-label" for="quoteFile">Choose quote file</label>
+          <input type="file" id="quoteFile" accept=".pdf,image/*" />
+          <div class="selected-file" id="selectedFileText">No file chosen yet</div>
+        </div>
+
+        <input type="email" name="email" placeholder="Enter your email address" autocomplete="email" required />
+
+        <button class="btn" type="submit">Submit Quote Interest</button>
+        <p class="micro">This helps us measure real demand and prioritise early users.</p>
+        <div class="form-message success"></div>
+        <div class="form-message error"></div>
+      </form>
+    </div>
+  </div>
+
   <script>
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkopdpbo";
+    const modal = document.getElementById("uploadModal");
+    const openTriggers = document.querySelectorAll(".upload-trigger");
+    const closeModalBtn = document.getElementById("closeModal");
+    const quoteFileInput = document.getElementById("quoteFile");
+    const selectedFileText = document.getElementById("selectedFileText");
+    const selectedFileNameField = document.getElementById("selectedFileNameField");
 
-    document.querySelectorAll(".waitlist-form").forEach((form) => {
+    function openModal() {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      if (typeof fbq !== "undefined") {
+        fbq("trackCustom", "QuoteUploadClick");
+      }
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    openTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", openModal);
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    quoteFileInput.addEventListener("change", () => {
+      const file = quoteFileInput.files && quoteFileInput.files[0];
+
+      if (file) {
+        selectedFileText.textContent = "Selected: " + file.name;
+        selectedFileNameField.value = file.name;
+      } else {
+        selectedFileText.textContent = "No file chosen yet";
+        selectedFileNameField.value = "";
+      }
+    });
+
+    document.querySelectorAll(".upload-intent-form").forEach((form) => {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -923,12 +1118,15 @@ fbq('track', 'PageView');
 
           if (response.ok) {
             form.reset();
-            successBox.textContent = "Thanks. You’re on the waitlist.";
+            quoteFileInput.value = "";
+            selectedFileText.textContent = "No file chosen yet";
+            selectedFileNameField.value = "";
+            successBox.textContent = "Thanks. You’re on the early access list for quote upload.";
             successBox.style.display = "block";
 
             if (typeof fbq !== "undefined") {
-              fbq('track', 'Lead');
-              fbq('trackCustom', 'QuoteGuardWaitlistSignup', {
+              fbq("track", "Lead");
+              fbq("trackCustom", "QuoteUploadIntent", {
                 form_location: form.dataset.location || "unknown"
               });
             }
